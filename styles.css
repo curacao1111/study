@@ -1,103 +1,159 @@
-/* --- Theme --- */
+/* Studyvally-inspired cute theme: soft pastels, bubbly pills, rounded cards */
+
 :root{
-  --bg1:#fff6ec; --bg2:#ffe1b5; --glass:#ffffffbb; --glass2:#ffffff88;
-  --fg:#3b2f2a; --muted:#6b5b55;
-  --line:#e9d7c8;
-  --primary:#ffb703; /* maple */
-  --success:#8bd17c;
-  --danger:#ef4444;
-  --accent:#ff8c42; /* syrup */
+  --pink:#ffd7f0;
+  --lav:#e2d9ff;
+  --mint:#d7f7ea;
+  --lemon:#fff3b0;
+  --bg:#fff8fd;
+  --glass:#ffffffcc;
+  --glass2:#ffffff80;
+  --line:#f0e6f6;
+
+  --text:#3a2e38;
+  --muted:#7a6a77;
+
+  --primary:#ff9ac8;   /* pink button */
+  --primary2:#ff7fb5;
+  --success:#88e0b3;
+  --danger:#ff6b6b;
 }
 
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;font:16px/1.45 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--fg);
-  background: radial-gradient(1200px 600px at 80% -20%, var(--bg2), transparent 60%),
-              radial-gradient(1200px 600px at 0% 0%, #fffaf3, transparent 55%),
-              linear-gradient(180deg, var(--bg1), #fff);
-  min-height:100dvh;
+html,body{
+  margin:0; padding:0;
+  font:16px/1.45 "Nunito", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:var(--text); background:var(--bg); min-height:100dvh;
 }
+
+/* Soft candy backdrop blobs */
+.sv-bg{
+  background:
+    radial-gradient(800px 400px at 10% -10%, var(--pink), transparent 50%),
+    radial-gradient(800px 500px at 100% 0%, var(--lav), transparent 55%),
+    radial-gradient(600px 380px at 80% 100%, var(--mint), transparent 55%),
+    linear-gradient(#fff, #fff8fd 60%);
+}
+
 .wrap{max-width:1100px;margin:0 auto;padding:20px}
 
-/* --- Header (pancake hero) --- */
-.hero-pancake{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:28px;padding-bottom:6px}
-.hero-left .brand{font-size:38px;margin:0 0 6px;font-weight:900;letter-spacing:0.2px}
-.hero-left .brand em{font-style:normal;color:var(--accent)}
-.hero-left .brand span{opacity:.5}
-.sub{color:var(--muted);margin:0 0 12px}
-.badge{display:inline-flex;align-items:center;gap:10px;background:var(--glass);backdrop-filter: blur(6px);
-  border:1px solid var(--line);border-radius:999px;padding:8px 12px}
-.badge .coin{filter:drop-shadow(0 1px 0 rgba(0,0,0,.05))}
+/* Hero */
+.sv-hero{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:26px}
+.logo-chip{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:999px;background:var(--glass);
+  border:1px solid var(--line); box-shadow:0 6px 30px #0000000a; backdrop-filter:blur(6px)
+}
+.logo-text{font-weight:900;font-size:28px; letter-spacing:.2px}
+.logo-text em{font-style:normal;color:#ff6fad}
+.logo-text .arrow{opacity:.5;margin:0 .2em}
+.sparkle{color:#ffb4d8}
 
-/* Pancake stack */
-.hero-right{flex:0 0 260px;display:flex;justify-content:center;align-items:flex-end;height:160px}
-.stack{position:relative;width:180px;height:140px;animation:float 5s ease-in-out infinite}
+.sub{color:var(--muted);margin:8px 0 12px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+  background:var(--glass); border:1px solid var(--line);
+  border-radius:999px; padding:8px 12px; font-weight:800; color:#5a4b57
+}
+
+.sv-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
+@media (max-width:980px){.sv-grid{grid-template-columns:1fr}}
+
+/* Cute buddy mascot */
+.hero-right{flex:0 0 280px;display:flex;justify-content:center;align-items:center;height:180px}
+.buddy{position:relative;width:220px;height:160px;animation:float 5s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.plate{position:absolute;bottom:0;left:50%;transform:translateX(-50%);
-  width:160px;height:20px;border-radius:12px;background:#e2e8f0;box-shadow:inset 0 -6px 0 #d1d5db}
-.cake{position:absolute;left:50%;transform:translateX(-50%);width:150px;height:22px;border-radius:12px;
-  background:linear-gradient(#f2c289,#e7a75e);box-shadow:0 3px 0 #d58e47}
-.cake:nth-child(2){bottom:50px}
-.cake:nth-child(3){bottom:70px}
-.cake:nth-child(4){bottom:90px}
-.butter{position:absolute;left:50%;bottom:110px;transform:translateX(-50%);width:44px;height:18px;border-radius:6px;
-  background:#ffe66d;box-shadow:0 2px 0 #e2c84b}
-.syrup{position:absolute;left:50%;bottom:40px;transform:translateX(-50%);width:120px;height:70px;border-radius:60px;
-  background:radial-gradient(80px 50px at 50% 0,#cc6b2c,transparent 60%), linear-gradient(#cc6b2c,#a8551b);opacity:.85;
-  clip-path:ellipse(60% 50% at 50% 0);filter:blur(.2px)}
-/* --- Grid & cards --- */
-.grid-balanced{display:grid;grid-template-columns:2fr 1fr;gap:16px}
-@media (max-width:980px){.grid-balanced{grid-template-columns:1fr}}
-.grid{gap:16px}
-.card{background:var(--glass);backdrop-filter: blur(10px);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 8px 24px #0000000a}
-.card.focus{outline:2px solid #ffd28a66}
-.kitchen .stat .big{font-variant-numeric:tabular-nums}
+.stack{position:absolute;bottom:0;left:50%;transform:translateX(-50%)}
+.cake{width:180px;height:26px;border-radius:18px;background:linear-gradient(#f8d7a5,#f0b56c);box-shadow:0 4px 0 #e39b4a;margin:6px auto}
+.cake:nth-child(2){width:170px}
+.cake:nth-child(3){width:160px}
+.butter{position:absolute;bottom:88px;left:50%;transform:translateX(-50%);width:54px;height:20px;border-radius:8px;background:#fff27e;box-shadow:0 2px 0 #e2d45d}
+.syrup{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);width:140px;height:80px;border-radius:70px;background:linear-gradient(#d4793a,#b86024);opacity:.9;clip-path:ellipse(60% 48% at 50% 0)}
+.plate{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:200px;height:24px;border-radius:14px;background:#e8edf6;box-shadow:inset 0 -8px 0 #d6dde8}
 
-/* --- Typography & UI bits --- */
+.face{position:absolute;bottom:120px;left:50%;transform:translateX(-50%);width:120px;height:60px}
+.eye{position:absolute;top:16px;width:16px;height:16px;background:#3a2e38;border-radius:50%}
+.eye.left{left:28px}
+.eye.right{right:28px}
+.smile{position:absolute;left:50%;top:26px;transform:translateX(-50%);width:42px;height:22px;border:4px solid #3a2e38;border-top:none;border-radius:0 0 40px 40px}
+.blush{position:absolute;top:32px;width:22px;height:10px;background:#ffc0d7;border-radius:999px;filter:blur(.3px);opacity:.8}
+.blush.left{left:6px}
+.blush.right{right:6px}
+
+/* Cards */
+.card.sv-card{
+  background:var(--glass);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:16px;
+  box-shadow:0 10px 30px #e6d7ff55, 0 2px 0 #ffffffcc inset;
+  backdrop-filter:blur(10px);
+}
+.card.focus{outline:2px solid #ffd7f0aa}
+
+/* Typography */
 h1,h2,h3{margin:0 0 10px}
 h2{font-size:20px}
 h3{font-size:16px}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-.big{font-size:28px;font-weight:800}
+.big{font-size:28px;font-weight:900;letter-spacing:.2px}
 .muted{color:var(--muted)}
 .tiny{font-size:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
 
 /* Buttons */
-.btn{border:0;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;transition:transform .04s ease, box-shadow .2s}
+.btn{
+  border:0;border-radius:14px;padding:10px 14px;font-weight:900;cursor:pointer;
+  transition:transform .06s ease, box-shadow .2s ease
+}
 .btn:hover{transform:translateY(-1px)}
 .btn:active{transform:translateY(0)}
-.btn.primary{background:linear-gradient(180deg,#ffd166,#ffb703);color:#3b2f2a;box-shadow:0 6px 16px #ffb70342}
-.btn.success{background:linear-gradient(180deg,#b7f0a3,#8bd17c);color:#18421a;box-shadow:0 6px 16px #8bd17c42}
-.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
-.btn.danger{background:var(--danger);color:#fff}
+.btn.primary{
+  color:#3a2e38;background:linear-gradient(180deg,var(--primary),var(--primary2));
+  box-shadow:0 8px 18px #ff7fb52f
+}
+.btn.success{
+  color:#173d2b;background:linear-gradient(180deg,#aaf3cd,var(--success));
+  box-shadow:0 8px 18px #88e0b32f
+}
+.btn.ghost{background:var(--glass2);border:1px solid var(--line);color:#4f4450}
+.btn.danger{background:var(--danger);color:white}
 
-/* Timer & wallet */
+/* Timer & Wallet */
 .timer{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 12px}
-.timebox{background:var(--glass2);border:1px solid var(--line);border-radius:14px;padding:10px}
-.wallet{display:flex;align-items:baseline;gap:10px}
-.coin-count{position:relative;padding-left:28px}
-.coin-count::before{content:'🪙';position:absolute;left:0;top:2px;}
+.timebox{background:var(--glass2);border:1px solid var(--line);border-radius:16px;padding:10px}
+.wallet{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.coin-count{position:relative;padding-left:30px}
+.coin-count::before{content:'🪙';position:absolute;left:0;top:2px}
 
 /* Notes */
 .notes{list-style:none;padding:0;margin:10px 0 0;max-height:140px;overflow:auto;border-top:1px dashed var(--line)}
 .notes li{padding:6px 0;border-bottom:1px dashed var(--line);font-size:14px}
 .notes time{color:var(--muted);margin-right:6px}
+.tip{font-size:13px;color:#6f5f6d;margin:6px 0 10px}
 
 /* Shop & Inventory */
 .shop{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:8px}
-.item{display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fffefb99}
+.item{
+  display:flex;justify-content:space-between;align-items:center;padding:12px;
+  border:1px solid var(--line);border-radius:16px;background:#fffdfd;
+  box-shadow:0 2px 0 #ffffff inset
+}
 .item .left{display:flex;gap:12px;align-items:center}
-.price{color:#8a5a00;font-weight:800}
+.price{color:#8a5a00;font-weight:900}
 .inv{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:8px}
-.inv .slot{border:1px solid var(--line);border-radius:14px;padding:10px;display:flex;justify-content:space-between;align-items:center;background:#fffefb88}
+.inv .slot{
+  border:1px solid var(--line);border-radius:16px;padding:10px;
+  display:flex;justify-content:space-between;align-items:center;background:#fffdfd
+}
 
 /* Stats & log */
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
-.stat{background:var(--glass2);border:1px solid var(--line);border-radius:14px;padding:10px}
+.stat{background:var(--glass2);border:1px solid var(--line);border-radius:16px;padding:10px}
 .log{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);min-height:40px;color:var(--muted);font-size:14px;max-height:150px;overflow:auto}
 
 /* Footer */
 .foot{border-top:1px solid var(--line);margin-top:18px;padding-top:14px;color:var(--muted)}
 
-.pop{animation:pop .25s ease}
+/* Fun pop when numbers change (optional if you added it in JS) */
+.pop{animation:pop .22s ease}
 @keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
-
