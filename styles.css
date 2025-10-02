@@ -1,42 +1,99 @@
+/* --- Theme --- */
 :root{
-  --bg:#0e1116; --fg:#e7eaf0; --muted:#a8b0bd;
-  --card:#161b22; --line:#222936; --accent:#9ae6b4;
-  --accent2:#ffd166; --danger:#ef4444;
+  --bg1:#fff6ec; --bg2:#ffe1b5; --glass:#ffffffbb; --glass2:#ffffff88;
+  --fg:#3b2f2a; --muted:#6b5b55;
+  --line:#e9d7c8;
+  --primary:#ffb703; /* maple */
+  --success:#8bd17c;
+  --danger:#ef4444;
+  --accent:#ff8c42; /* syrup */
 }
+
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Arial}
+html,body{margin:0;padding:0;font:16px/1.45 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--fg);
+  background: radial-gradient(1200px 600px at 80% -20%, var(--bg2), transparent 60%),
+              radial-gradient(1200px 600px at 0% 0%, #fffaf3, transparent 55%),
+              linear-gradient(180deg, var(--bg1), #fff);
+  min-height:100dvh;
+}
 .wrap{max-width:1100px;margin:0 auto;padding:20px}
-h1{margin:0 0 6px;font-size:28px}
-h2{margin:0 0 10px;font-size:20px}
-h3{margin:16px 0 8px}
-.sub{color:var(--muted);margin:0 0 14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
-.row{display:flex;gap:8px;flex-wrap:wrap}
-.big{font-size:28px;font-weight:700}
+
+/* --- Header (pancake hero) --- */
+.hero-pancake{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:28px;padding-bottom:6px}
+.hero-left .brand{font-size:38px;margin:0 0 6px;font-weight:900;letter-spacing:0.2px}
+.hero-left .brand em{font-style:normal;color:var(--accent)}
+.hero-left .brand span{opacity:.5}
+.sub{color:var(--muted);margin:0 0 12px}
+.badge{display:inline-flex;align-items:center;gap:10px;background:var(--glass);backdrop-filter: blur(6px);
+  border:1px solid var(--line);border-radius:999px;padding:8px 12px}
+.badge .coin{filter:drop-shadow(0 1px 0 rgba(0,0,0,.05))}
+
+/* Pancake stack */
+.hero-right{flex:0 0 260px;display:flex;justify-content:center;align-items:flex-end;height:160px}
+.stack{position:relative;width:180px;height:140px;animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.plate{position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:160px;height:20px;border-radius:12px;background:#e2e8f0;box-shadow:inset 0 -6px 0 #d1d5db}
+.cake{position:absolute;left:50%;transform:translateX(-50%);width:150px;height:22px;border-radius:12px;
+  background:linear-gradient(#f2c289,#e7a75e);box-shadow:0 3px 0 #d58e47}
+.cake:nth-child(2){bottom:50px}
+.cake:nth-child(3){bottom:70px}
+.cake:nth-child(4){bottom:90px}
+.butter{position:absolute;left:50%;bottom:110px;transform:translateX(-50%);width:44px;height:18px;border-radius:6px;
+  background:#ffe66d;box-shadow:0 2px 0 #e2c84b}
+.syrup{position:absolute;left:50%;bottom:40px;transform:translateX(-50%);width:120px;height:70px;border-radius:60px;
+  background:radial-gradient(80px 50px at 50% 0,#cc6b2c,transparent 60%), linear-gradient(#cc6b2c,#a8551b);opacity:.85;
+  clip-path:ellipse(60% 50% at 50% 0);filter:blur(.2px)}
+/* --- Grid & cards --- */
+.grid-balanced{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+@media (max-width:980px){.grid-balanced{grid-template-columns:1fr}}
+.grid{gap:16px}
+.card{background:var(--glass);backdrop-filter: blur(10px);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 8px 24px #0000000a}
+.card.focus{outline:2px solid #ffd28a66}
+.kitchen .stat .big{font-variant-numeric:tabular-nums}
+
+/* --- Typography & UI bits --- */
+h1,h2,h3{margin:0 0 10px}
+h2{font-size:20px}
+h3{font-size:16px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.big{font-size:28px;font-weight:800}
 .muted{color:var(--muted)}
 .tiny{font-size:12px}
 
-.btn{background:var(--accent);color:#0b0d10;border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
-.btn:hover{filter:brightness(1.05)}
+/* Buttons */
+.btn{border:0;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;transition:transform .04s ease, box-shadow .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn.primary{background:linear-gradient(180deg,#ffd166,#ffb703);color:#3b2f2a;box-shadow:0 6px 16px #ffb70342}
+.btn.success{background:linear-gradient(180deg,#b7f0a3,#8bd17c);color:#18421a;box-shadow:0 6px 16px #8bd17c42}
 .btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
-.btn.danger{background:var(--danger);color:white}
+.btn.danger{background:var(--danger);color:#fff}
 
+/* Timer & wallet */
 .timer{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 12px}
-.wallet{display:flex;align-items:baseline;gap:8px}
+.timebox{background:var(--glass2);border:1px solid var(--line);border-radius:14px;padding:10px}
+.wallet{display:flex;align-items:baseline;gap:10px}
+.coin-count{position:relative;padding-left:28px}
+.coin-count::before{content:'🪙';position:absolute;left:0;top:2px;}
 
-.notes{list-style:none;padding:0;margin:10px 0 0;max-height:120px;overflow:auto;border-top:1px dashed var(--line)}
+/* Notes */
+.notes{list-style:none;padding:0;margin:10px 0 0;max-height:140px;overflow:auto;border-top:1px dashed var(--line)}
 .notes li{padding:6px 0;border-bottom:1px dashed var(--line);font-size:14px}
 .notes time{color:var(--muted);margin-right:6px}
 
-.shop{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
-.item{display:flex;justify-content:space-between;align-items:center;padding:10px;border:1px solid var(--line);border-radius:10px}
-.item .left{display:flex;gap:10px;align-items:center}
-.price{color:var(--accent2);font-weight:700}
-.inv{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
-.inv .slot{border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;justify-content:space-between;align-items:center}
-.recipe ul{margin:6px 0 0 18px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
-.log{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);min-height:40px;color:var(--muted);font-size:14px;max-height:150px;overflow:auto}
-.foot{border-top:1px solid var(--line);margin-top:18px;padding-top:14px;color:var(--muted)}
+/* Shop & Inventory */
+.shop{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:8px}
+.item{display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fffefb99}
+.item .left{display:flex;gap:12px;align-items:center}
+.price{color:#8a5a00;font-weight:800}
+.inv{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:8px}
+.inv .slot{border:1px solid var(--line);border-radius:14px;padding:10px;display:flex;justify-content:space-between;align-items:center;background:#fffefb88}
 
+/* Stats & log */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.stat{background:var(--glass2);border:1px solid var(--line);border-radius:14px;padding:10px}
+.log{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);min-height:40px;color:var(--muted);font-size:14px;max-height:150px;overflow:auto}
+
+/* Footer */
+.foot{border-top:1px solid var(--line);margin-top:18px;padding-top:14px;color:var(--muted)}
