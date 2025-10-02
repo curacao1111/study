@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Site</title>
+    <meta name="description" content="My personal website." />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="wrap">
+      <nav class="nav">
+        <a class="logo" href="/">MySite</a>
+        <div class="links">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+      <section class="hero">
+        <h1>Hi, I’m <span class="accent">You</span>.</h1>
+        <p>I build things and write sometimes. Here are a few highlights.</p>
+        <a class="btn" href="#projects">See projects</a>
+      </section>
+    </header>
+
+    <main class="wrap">
+      <section id="projects" class="grid">
+        <article class="card">
+          <h3>Project One</h3>
+          <p>What it is, why it’s cool, and a link.</p>
+          <a class="pill" href="#" target="_blank" rel="noopener">View ↗</a>
+        </article>
+        <article class="card">
+          <h3>Project Two</h3>
+          <p>Short description. Stack, result, or demo link.</p>
+          <a class="pill" href="#" target="_blank" rel="noopener">View ↗</a>
+        </article>
+        <article class="card">
+          <h3>Project Three</h3>
+          <p>Another thing you’re proud of.</p>
+          <a class="pill" href="#" target="_blank" rel="noopener">View ↗</a>
+        </article>
+      </section>
+
+      <section id="about" class="about">
+        <h2>About</h2>
+        <p>
+          Quick bio. What you do, what you like, and where to find you online.
+        </p>
+      </section>
+
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>Email me at <a href="mailto:you@example.com">you@example.com</a>.</p>
+      </section>
+    </main>
+
+    <footer class="wrap foot">
+      <small>© <span id="year"></span> You. All rights reserved.</small>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
