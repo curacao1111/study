@@ -97,3 +97,7 @@ h3{font-size:16px}
 
 /* Footer */
 .foot{border-top:1px solid var(--line);margin-top:18px;padding-top:14px;color:var(--muted)}
+
+.pop{animation:pop .25s ease}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+
