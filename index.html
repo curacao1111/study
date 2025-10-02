@@ -1,70 +1,104 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Site</title>
-    <meta name="description" content="My personal website." />
-    <link rel="icon" href="favicon.ico" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="wrap">
-      <nav class="nav">
-        <a class="logo" href="/">MySite</a>
-        <div class="links">
-          <a href="#projects">Projects</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Study → Pancakes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <h1>Study → Pancakes</h1>
+    <p class="sub">Study minutes become coins. Coins buy ingredients. Ingredients become pancakes.</p>
+  </header>
+
+  <main class="wrap grid">
+    <!-- TIMER -->
+    <section class="card">
+      <h2>⏱️ Study Timer</h2>
+      <div class="timer">
+        <div>
+          <div class="big" id="sessionTime">00:00:00</div>
+          <div class="muted">This session</div>
         </div>
-      </nav>
-      <section class="hero">
-        <h1>Hi, I’m <span class="accent">You</span>.</h1>
-        <p>I build things and write sometimes. Here are a few highlights.</p>
-        <a class="btn" href="#projects">See projects</a>
-      </section>
-    </header>
+        <div>
+          <div class="big" id="totalTime">00:00:00</div>
+          <div class="muted">Total studied</div>
+        </div>
+      </div>
+      <div class="row">
+        <button id="toggleBtn" class="btn">Start studying</button>
+        <button id="lapBtn" class="btn ghost">Add note</button>
+        <button id="resetSessionBtn" class="btn ghost">Reset session</button>
+      </div>
+      <ul id="notes" class="notes"></ul>
+      <p class="muted tiny">Coins per minute: <span id="rate">10</span> • Pauses if tab is hidden to keep it fair.</p>
+    </section>
 
-    <main class="wrap">
-      <section id="projects" class="grid">
-        <article class="card">
-          <h3>Project One</h3>
-          <p>What it is, why it’s cool, and a link.</p>
-          <a class="pill" href="#" target="_blank" rel="noopener">View ↗</a>
-        </article>
-        <article class="card">
-          <h3>Project Two</h3>
-          <p>Short description. Stack, result, or demo link.</p>
-          <a class="pill" href="#" target="_blank" rel="noopener">View ↗</a>
-        </article>
-        <article class="card">
-          <h3>Project Three</h3>
-          <p>Another thing you’re proud of.</p>
-          <a class="pill" href="#" target="_blank" rel="noopener">View ↗</a>
-        </article>
-      </section>
+    <!-- WALLET / COINS -->
+    <section class="card">
+      <h2>💰 Wallet</h2>
+      <div class="wallet">
+        <div class="big" id="coins">0</div>
+        <div class="muted">coins</div>
+      </div>
+      <div class="muted tiny">Earned from study time. 1 minute = 10 coins.</div>
+      <hr />
+      <button id="saveBtn" class="btn ghost">Save now</button>
+      <button id="resetAllBtn" class="btn danger">Hard reset</button>
+    </section>
 
-      <section id="about" class="about">
-        <h2>About</h2>
-        <p>
-          Quick bio. What you do, what you like, and where to find you online.
-        </p>
-      </section>
+    <!-- SHOP -->
+    <section class="card">
+      <h2>🛒 Ingredient Shop</h2>
+      <div class="muted tiny">Click to buy. Hold Shift for ×5, Alt for ×10.</div>
+      <div id="shop" class="shop">
+        <!-- filled by JS -->
+      </div>
+    </section>
 
-      <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>Email me at <a href="mailto:you@example.com">you@example.com</a>.</p>
-      </section>
-    </main>
+    <!-- INVENTORY + RECIPE -->
+    <section class="card">
+      <h2>🧺 Inventory & Recipe</h2>
+      <div id="inventory" class="inv"></div>
+      <div class="recipe">
+        <h3>Recipe: 1 Pancake 🥞</h3>
+        <ul>
+          <li>Flour ×2</li>
+          <li>Egg ×1</li>
+          <li>Milk ×1</li>
+          <li>Sugar ×1</li>
+          <li>Butter ×1</li>
+        </ul>
+      </div>
+    </section>
 
-    <footer class="wrap foot">
-      <small>© <span id="year"></span> You. All rights reserved.</small>
-    </footer>
+    <!-- KITCHEN -->
+    <section class="card">
+      <h2>🍳 Kitchen</h2>
+      <div class="row">
+        <button id="cookOneBtn" class="btn">Cook 1 🥞</button>
+        <button id="cookMaxBtn" class="btn">Cook MAX 🥞</button>
+      </div>
+      <div class="stats">
+        <div>
+          <div class="big" id="pancakes">0</div>
+          <div class="muted">pancakes cooked</div>
+        </div>
+        <div>
+          <div class="big" id="batches">0</div>
+          <div class="muted">batches cooked</div>
+        </div>
+      </div>
+      <div id="log" class="log"></div>
+    </section>
+  </main>
 
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
+  <footer class="wrap foot">
+    <small>© <span id="year"></span> Study → Pancakes</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
 </html>
+
