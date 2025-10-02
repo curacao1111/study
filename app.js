@@ -264,3 +264,16 @@ window.addEventListener('keydown', (e)=>{
   if(e.ctrlKey && e.key.toLowerCase()==='s'){ e.preventDefault(); save(); }
   if(e.code==='Space'){ e.preventDefault(); state.running ? pause() : start(); }
 });
+
+
+function popOnce(node){
+  node.classList.add('pop');
+  setTimeout(()=>node.classList.remove('pop'), 250);
+}
+function bubbleToast(msg){
+  const log = document.getElementById('log');
+  const div = document.createElement('div');
+  div.textContent = '• ' + msg;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
