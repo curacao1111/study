@@ -8,6 +8,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
+  <!-- Full-screen Timer Overlay -->
+<div id="fsOverlay" class="fs-overlay" aria-hidden="true">
+  <div class="fs-inner">
+    <div class="fs-title">Study Timer</div>
+    <div class="fs-times">
+      <div>
+        <div id="fsSession" class="fs-time">00:00:00</div>
+        <div class="fs-label">This session</div>
+      </div>
+      <div>
+        <div id="fsTotal" class="fs-time">00:00:00</div>
+        <div class="fs-label">Total studied</div>
+      </div>
+    </div>
+    <div class="fs-actions">
+      <button id="fsToggle" class="btn primary">Start / Pause (Space)</button>
+      <button id="fsExit" class="btn ghost">Exit (Esc)</button>
+      <button id="fsTheme" class="btn ghost">🌙</button>
+    </div>
+  </div>
+</div>
+
 <body class="sv-bg">
   <header class="wrap sv-hero">
     <div class="hero-left">
@@ -68,6 +90,12 @@
       <ul id="notes" class="notes"></ul>
       <p class="muted tiny">Timer pauses if the tab is hidden—fair & honest 🍀</p>
     </section>
+
+    <div class="row">
+  <button id="fsBtn" class="btn ghost">Full-screen timer</button>
+  <button id="themeBtn" class="btn ghost">🌙 Dark mode</button>
+</div>
+
 
     <!-- WALLET -->
     <section class="card sv-card">
