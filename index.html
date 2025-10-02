@@ -7,54 +7,71 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="wrap">
-    <h1>Study → Pancakes</h1>
-    <p class="sub">Study minutes become coins. Coins buy ingredients. Ingredients become pancakes.</p>
+  <header class="wrap hero-pancake">
+    <div class="hero-left">
+      <h1 class="brand">Study <span>→</span> <em>Pancakes</em></h1>
+      <p class="sub">Study minutes become coins. Coins buy ingredients. Ingredients become pancakes.</p>
+      <div class="badge">
+        <span class="coin">🟡</span>
+        <span>1 min = <strong id="rate">10</strong> coins</span>
+      </div>
+    </div>
+
+    <!-- Pancake stack illustration (pure HTML/CSS) -->
+    <div class="hero-right">
+      <div class="stack">
+        <div class="butter"></div>
+        <div class="cake"></div>
+        <div class="cake"></div>
+        <div class="cake"></div>
+        <div class="syrup"></div>
+        <div class="plate"></div>
+      </div>
+    </div>
   </header>
 
-  <main class="wrap grid">
+  <main class="wrap grid grid-balanced">
     <!-- TIMER -->
-    <section class="card">
+    <section class="card focus">
       <h2>⏱️ Study Timer</h2>
       <div class="timer">
-        <div>
+        <div class="timebox">
           <div class="big" id="sessionTime">00:00:00</div>
           <div class="muted">This session</div>
         </div>
-        <div>
+        <div class="timebox">
           <div class="big" id="totalTime">00:00:00</div>
           <div class="muted">Total studied</div>
         </div>
       </div>
       <div class="row">
-        <button id="toggleBtn" class="btn">Start studying</button>
+        <button id="toggleBtn" class="btn primary">Start studying</button>
         <button id="lapBtn" class="btn ghost">Add note</button>
         <button id="resetSessionBtn" class="btn ghost">Reset session</button>
       </div>
       <ul id="notes" class="notes"></ul>
-      <p class="muted tiny">Coins per minute: <span id="rate">10</span> • Pauses if tab is hidden to keep it fair.</p>
+      <p class="muted tiny">Timer pauses when the tab is hidden (fair play).</p>
     </section>
 
     <!-- WALLET / COINS -->
     <section class="card">
       <h2>💰 Wallet</h2>
       <div class="wallet">
-        <div class="big" id="coins">0</div>
+        <div class="big coin-count" id="coins">0</div>
         <div class="muted">coins</div>
       </div>
-      <div class="muted tiny">Earned from study time. 1 minute = 10 coins.</div>
       <hr />
-      <button id="saveBtn" class="btn ghost">Save now</button>
-      <button id="resetAllBtn" class="btn danger">Hard reset</button>
+      <div class="row">
+        <button id="saveBtn" class="btn ghost">Save now</button>
+        <button id="resetAllBtn" class="btn danger">Hard reset</button>
+      </div>
     </section>
 
     <!-- SHOP -->
     <section class="card">
       <h2>🛒 Ingredient Shop</h2>
-      <div class="muted tiny">Click to buy. Hold Shift for ×5, Alt for ×10.</div>
-      <div id="shop" class="shop">
-        <!-- filled by JS -->
-      </div>
+      <div class="muted tiny">Click to buy. Hold <strong>Shift</strong> for ×5, <strong>Alt</strong> for ×10.</div>
+      <div id="shop" class="shop"></div>
     </section>
 
     <!-- INVENTORY + RECIPE -->
@@ -74,18 +91,18 @@
     </section>
 
     <!-- KITCHEN -->
-    <section class="card">
+    <section class="card kitchen">
       <h2>🍳 Kitchen</h2>
       <div class="row">
-        <button id="cookOneBtn" class="btn">Cook 1 🥞</button>
-        <button id="cookMaxBtn" class="btn">Cook MAX 🥞</button>
+        <button id="cookOneBtn" class="btn success">Cook 1 🥞</button>
+        <button id="cookMaxBtn" class="btn success">Cook MAX 🥞</button>
       </div>
       <div class="stats">
-        <div>
+        <div class="stat">
           <div class="big" id="pancakes">0</div>
           <div class="muted">pancakes cooked</div>
         </div>
-        <div>
+        <div class="stat">
           <div class="big" id="batches">0</div>
           <div class="muted">batches cooked</div>
         </div>
@@ -101,4 +118,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
