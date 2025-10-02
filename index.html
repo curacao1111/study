@@ -4,35 +4,51 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Study → Pancakes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="wrap hero-pancake">
+<body class="sv-bg">
+  <header class="wrap sv-hero">
     <div class="hero-left">
-      <h1 class="brand">Study <span>→</span> <em>Pancakes</em></h1>
-      <p class="sub">Study minutes become coins. Coins buy ingredients. Ingredients become pancakes.</p>
-      <div class="badge">
-        <span class="coin">🟡</span>
-        <span>1 min = <strong id="rate">10</strong> coins</span>
+      <div class="logo-chip">
+        <span class="sparkle">✦</span>
+        <span class="logo-text">Study<span class="arrow">→</span><em>Pancakes</em></span>
+        <span class="sparkle">✦</span>
+      </div>
+      <p class="sub">Turn study time into yummy stacks. Cute coins, cozy vibes, zero stress.</p>
+      <div class="chips">
+        <div class="chip">⏱ 1 min = <strong id="rate">10</strong> coins</div>
+        <div class="chip">🥞 Chill & earn</div>
+        <div class="chip">🌸 Kawaii mode</div>
       </div>
     </div>
 
-    <!-- Pancake stack illustration (pure HTML/CSS) -->
+    <!-- Pancake buddy (CSS-only mascot) -->
     <div class="hero-right">
-      <div class="stack">
-        <div class="butter"></div>
-        <div class="cake"></div>
-        <div class="cake"></div>
-        <div class="cake"></div>
-        <div class="syrup"></div>
-        <div class="plate"></div>
+      <div class="buddy">
+        <div class="face">
+          <span class="eye left"></span>
+          <span class="eye right"></span>
+          <span class="smile"></span>
+          <span class="blush left"></span>
+          <span class="blush right"></span>
+        </div>
+        <div class="stack">
+          <div class="cake"></div>
+          <div class="cake"></div>
+          <div class="cake"></div>
+          <div class="butter"></div>
+          <div class="syrup"></div>
+          <div class="plate"></div>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="wrap grid grid-balanced">
+  <main class="wrap grid sv-grid">
     <!-- TIMER -->
-    <section class="card focus">
+    <section class="card sv-card focus">
       <h2>⏱️ Study Timer</h2>
       <div class="timer">
         <div class="timebox">
@@ -50,17 +66,17 @@
         <button id="resetSessionBtn" class="btn ghost">Reset session</button>
       </div>
       <ul id="notes" class="notes"></ul>
-      <p class="muted tiny">Timer pauses when the tab is hidden (fair play).</p>
+      <p class="muted tiny">Timer pauses if the tab is hidden—fair & honest 🍀</p>
     </section>
 
-    <!-- WALLET / COINS -->
-    <section class="card">
+    <!-- WALLET -->
+    <section class="card sv-card">
       <h2>💰 Wallet</h2>
       <div class="wallet">
         <div class="big coin-count" id="coins">0</div>
         <div class="muted">coins</div>
       </div>
-      <hr />
+      <div class="tip">Tip: coins pop in every full minute you study!</div>
       <div class="row">
         <button id="saveBtn" class="btn ghost">Save now</button>
         <button id="resetAllBtn" class="btn danger">Hard reset</button>
@@ -68,14 +84,14 @@
     </section>
 
     <!-- SHOP -->
-    <section class="card">
+    <section class="card sv-card">
       <h2>🛒 Ingredient Shop</h2>
-      <div class="muted tiny">Click to buy. Hold <strong>Shift</strong> for ×5, <strong>Alt</strong> for ×10.</div>
+      <div class="muted tiny">Click to buy. Hold <b>Shift</b> for ×5, <b>Alt</b> for ×10.</div>
       <div id="shop" class="shop"></div>
     </section>
 
-    <!-- INVENTORY + RECIPE -->
-    <section class="card">
+    <!-- INVENTORY -->
+    <section class="card sv-card">
       <h2>🧺 Inventory & Recipe</h2>
       <div id="inventory" class="inv"></div>
       <div class="recipe">
@@ -91,7 +107,7 @@
     </section>
 
     <!-- KITCHEN -->
-    <section class="card kitchen">
+    <section class="card sv-card kitchen">
       <h2>🍳 Kitchen</h2>
       <div class="row">
         <button id="cookOneBtn" class="btn success">Cook 1 🥞</button>
